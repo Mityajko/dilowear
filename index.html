@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Футболки, худі та світшоти з вашим логотипом</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .hero {
+            background: url('https://source.unsplash.com/900x500/?clothing,branding') no-repeat center center/cover;
+            color: white;
+            padding: 60px 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .hero h1, .hero p, .hero a {
+            position: relative;
+            z-index: 1;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ff6600;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .info {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .info h2 {
+            color: #ff6600;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #ff6600;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Футболки, худі та світшоти з вашим логотипом</h1>
+        <p>Від 5 одиниць | Готово за 2-3 дні | Якісні матеріали</p>
+        <a href="https://forms.gle/RBRrLbxgBMy76KRM7" class="btn" target="_blank">Залишити заявку</a>
+    </div>
+    <div class="container">
+        <div class="info">
+            <h2>Чому ми?</h2>
+            <p><span class="highlight">Швидко</span>: виготовляємо за 2-3 дні.</p>
+            <p><span class="highlight">Доступно</span>: краще співвідношення ціни та якості.</p>
+            <p><span class="highlight">Якісно</span>: використовуємо стійкі матеріали та сучасні технології друку.</p>
+        </div>
+        <div class="info">
+            <h2>Вартість</h2>
+            <p><span class="highlight">5 футболок за 3250 грн</span></p>
+            <p><span class="highlight">5 худі за 6000 грн</span></p>
+            <p><span class="highlight">5 світшотів за 6000 грн</span></p>
+            <p>Нанесення: <span class="highlight">спина (20x7 см) + груди (5x5 см)</span></p>
+            <p>Потрібен файл для друку, контактні дані та передоплата.</p>
+        </div>
+        <div class="info">
+            <h2>Наші клієнти</h2>
+            <p>Бізнеси, команди, івент-агентства, спортивні клуби, стартапи.</p>
+            <p>Довіряють нам за <span class="highlight">стабільність, швидкість та якість</span>.</p>
+        </div>
+        <div class="info">
+            <h2>Контакти</h2>
+            <p>Напишіть нам у <a href="https://t.me/omsatori" target="_blank">Telegram</a> – відповімо миттєво!</p>
+        </div>
+    </div>
+</body>
+</html>
