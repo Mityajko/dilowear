@@ -146,17 +146,41 @@
     </section>
     <section id="form" class="container">
       <h2>Залишити заявку</h2>
-      <form>
-        <select name="product">
-          <option value="tshirt">Футболка</option>
-          <option value="hoodie">Худі</option>
-          <option value="sweatshirt">Світшот</option>
-          <option value="other">Інше</option>
-        </select>
-        <input type="text" name="name" placeholder="Ваше ім'я" required>
-        <input type="tel" name="phone" placeholder="Ваш номер телефону" required>
-        <button type="submit">Відправити</button>
-      </form>
+      <form id="orderForm">
+  <select name="product" required>
+    <option value="tshirt">Футболка</option>
+    <option value="hoodie">Худі</option>
+    <option value="sweatshirt">Світшот</option>
+    <option value="other">Інше</option>
+  </select>
+  <input type="text" name="name" placeholder="Ваше ім'я" required>
+  <input type="tel" name="phone" placeholder="Ваш номер телефону" required>
+  <button type="submit">Відправити</button>
+</form>
+<script>
+document.getElementById("orderForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  var formData = {
+    product: document.querySelector('[name="product"]').value,
+    name: document.querySelector('[name="name"]').value,
+    phone: document.querySelector('[name="phone"]').value
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbxWCQYw-BFXjZ9uMib8cq1RLVu6VuftYQtKZmVBTq4Ay4doy1szoRjz0uo9CuoyQsKljw/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formData)
+  });
+
+  alert("Заявка відправлена!");
+  document.getElementById("orderForm").reset();
+});
+</script>
+
     </section>
   </main>
   <footer>
