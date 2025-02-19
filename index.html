@@ -145,19 +145,64 @@
       <p>Створюємо мерч, який працює на ваш бренд: якісно, швидко та без зайвих клопотів.</p>
     </section>
     <section id="form" class="container">
-      <h2>Залишити заявку</h2>
-      <form id="orderForm">
-  <select name="product" required>
-    <option value="tshirt">Футболка</option>
-    <option value="hoodie">Худі</option>
-    <option value="sweatshirt">Світшот</option>
-    <option value="other">Інше</option>
-  </select>
-  <input type="text" name="name" placeholder="Ваше ім'я" required>
-  <input type="tel" name="phone" placeholder="Ваш номер телефону" required>
-  <button type="submit">Відправити</button>
-</form>
+  <h2>Залишити заявку</h2>
+  <form id="orderForm">
+    <select name="product" required>
+      <option value="tshirt">Футболка</option>
+      <option value="hoodie">Худі</option>
+      <option value="sweatshirt">Світшот</option>
+      <option value="other">Інше</option>
+    </select>
+    <input type="text" name="name" placeholder="Ваше ім'я" required>
+    <input type="tel" name="phone" placeholder="Ваш номер телефону" required>
+    <button type="submit" id="submitButton">Відправити</button>
+  </form>
+  <p id="successMessage" style="display:none; color:green; margin-top:10px;">✅ Ваша заявка успішно відправлена!</p>
+</section>
+
 <script>
+document.getElementById("orderForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  var submitButton = document.getElementById("submitButton");
+  var successMessage = document.getElementById("successMessage");
+  
+  var phone = document.querySelector('[name="phone"]').value;
+  var phonePattern = /^\+?\d{10,13}$/;
+  if (!phonePattern.test(phone)) {
+    alert("❌ Будь ласка, введіть коректний номер телефону!");
+    return;
+  }
+  
+  submitButton.textContent = "Відправка...";
+  submitButton.disabled = true;
+  
+  var formData = {
+    product: document.querySelector('[name="product"]').value,
+    name: document.querySelector('[name="name"]').value,
+    phone: phone
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbxWCQYw-BFXjZ9uMib8cq1RLVu6VuftYQtKZmVBTq4Ay4doy1szoRjz0uo9CuoyQsKljw/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formData)
+  }).then(() => {
+    submitButton.textContent = "Відправити";
+    submitButton.disabled = false;
+    document.getElementById("orderForm").reset();
+    successMessage.style.display = "block";
+    setTimeout(() => { successMessage.style.display = "none"; }, 5000);
+  }).catch(() => {
+    submitButton.textContent = "Відправити";
+    submitButton.disabled = false;
+    alert("❌ Помилка відправки. Спробуйте ще раз!");
+  });
+});
+</script>
+
 document.getElementById("orderForm").addEventListener("submit", function(event) {
   event.preventDefault();
 
