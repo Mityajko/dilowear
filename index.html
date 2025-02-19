@@ -1,101 +1,166 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Футболки, худі та світшоти з вашим логотипом</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            text-align: center;
-            color: #333;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .hero {
-            background: url('https://source.unsplash.com/900x500/?clothing,branding') no-repeat center center/cover;
-            color: white;
-            padding: 60px 20px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-            position: relative;
-        }
-        .hero::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
-        .hero h1, .hero p, .hero a {
-            position: relative;
-            z-index: 1;
-        }
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #ff6600;
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-        .info {
-            background: white;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-        .info h2 {
-            color: #ff6600;
-        }
-        .highlight {
-            font-weight: bold;
-            color: #ff6600;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DILOWEAR</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #2d2d2d;
+      color: #fff;
+      padding: 1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    .logo-container img {
+      height: 50px;
+      margin-right: 15px;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-text h1 {
+      font-size: 1.5em;
+      margin: 0;
+    }
+    .logo-text p {
+      font-size: 1em;
+      margin: 0;
+      color: #ccc;
+    }
+    header nav a {
+      margin: 0 1em;
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.1em;
+      transition: color 0.3s;
+    }
+    header nav a:hover {
+      color: #50d875;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+    section {
+      padding: 4em 0;
+      text-align: center;
+    }
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      margin-top: 2em;
+    }
+    .gallery-item {
+      width: 250px;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .gallery-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px 10px 0 0;
+    }
+    .info-block {
+      text-align: left;
+      margin-bottom: 1em;
+    }
+  </style>
 </head>
 <body>
-    <div class="hero">
-        <h1>Футболки, худі та світшоти з вашим логотипом</h1>
-        <p>Від 5 одиниць | Готово за 2-3 дні | Якісні матеріали</p>
-        <a href="https://forms.gle/RBRrLbxgBMy76KRM7" class="btn" target="_blank">Залишити заявку</a>
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="DILOWEAR">
+      <div class="logo-text">
+        <h1>DILOWEAR</h1>
+        <p>Легко замовити - приємно носити.</p>
+      </div>
     </div>
-    <div class="container">
-        <div class="info">
-            <h2>Чому ми?</h2>
-            <p><span class="highlight">Швидко</span>: виготовляємо за 2-3 дні.</p>
-            <p><span class="highlight">Доступно</span>: краще співвідношення ціни та якості.</p>
-            <p><span class="highlight">Якісно</span>: використовуємо стійкі матеріали та сучасні технології друку.</p>
+    <nav>
+      <a href="#gallery">Галерея</a>
+      <a href="#advantages">Чому ми</a>
+      <a href="#form">Контакти</a>
+    </nav>
+  </header>
+  <main>
+    <section id="gallery" class="container">
+      <h2>Наші вироби</h2>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="file:///Users/miuk/Documents/DILOWEAR/tshirt.png" alt="Футболка">
+          <p>Якісна футболка</p>
         </div>
-        <div class="info">
-            <h2>Вартість</h2>
-            <p><span class="highlight">5 футболок за 3250 грн</span></p>
-            <p><span class="highlight">5 худі за 6000 грн</span></p>
-            <p><span class="highlight">5 світшотів за 6000 грн</span></p>
-            <p>Нанесення: <span class="highlight">спина (20x7 см) + груди (5x5 см)</span></p>
-            <p>Потрібен файл для друку, контактні дані та передоплата.</p>
+        <div class="gallery-item">
+          <img src="file:///Users/miuk/Documents/DILOWEAR/hoodie.png" alt="Худи">
+          <p>Теплий худі</p>
         </div>
-        <div class="info">
-            <h2>Наші клієнти</h2>
-            <p>Бізнеси, команди, івент-агентства, спортивні клуби, стартапи.</p>
-            <p>Довіряють нам за <span class="highlight">стабільність, швидкість та якість</span>.</p>
+        <div class="gallery-item">
+          <img src="file:///Users/miuk/Documents/DILOWEAR/sweatshirt.png" alt="Свитшот">
+          <p>Стильний світшот</p>
         </div>
-        <div class="info">
-            <h2>Контакти</h2>
-            <p>Напишіть нам у <a href="https://t.me/omsatori" target="_blank">Telegram</a> – відповімо миттєво!</p>
-        </div>
-    </div>
+      </div>
+    </section>
+    <section id="utp" class="container">
+      <h2>Чому обирають нас?</h2>
+      <div class="info-block">
+        <p><strong>Швидко:</strong><br> Виготовляємо ваш мерч всього за 2-3 дні.</p>
+      </div>
+      <div class="info-block">
+        <p><strong>Доступно:</strong></p>
+        <ul>
+          <li>Комплект із 5 Футболок з вашим брендом – від 3250 грн (650 грн/шт)</li>
+          <li>Комплект із 5 Світшотів з вашим брендом – від 6000 грн (1200 грн/шт)</li>
+          <li>Комплект із 5 Худі з вашим брендом – від 6100 грн (1220 грн/шт)</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <p><strong>Якісно:</strong><br> Використовуємо стійкі матеріали та сучасні технології друку.</p>
+      </div>
+      <div class="info-block">
+        <p><strong>Наші клієнти:</strong><br> Бізнеси, команди, івент-агентства, спортивні клуби, стартапи, персональні бренди довіряють нам за стабільність, швидкість та бездоганну якість.</p>
+      </div>
+      <p>Створюємо мерч, який працює на ваш бренд: якісно, швидко та без зайвих клопотів.</p>
+    </section>
+    <section id="form" class="container">
+      <h2>Залишити заявку</h2>
+      <form>
+        <select name="product">
+          <option value="tshirt">Футболка</option>
+          <option value="hoodie">Худі</option>
+          <option value="sweatshirt">Світшот</option>
+          <option value="other">Інше</option>
+        </select>
+        <input type="text" name="name" placeholder="Ваше ім'я" required>
+        <input type="tel" name="phone" placeholder="Ваш номер телефону" required>
+        <button type="submit">Відправити</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 DILOWEAR. Всі права захищені.</p>
+  </footer>
 </body>
 </html>
