@@ -202,31 +202,6 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
   });
 });
 </script>
-
-document.getElementById("orderForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  var formData = {
-    product: document.querySelector('[name="product"]').value,
-    name: document.querySelector('[name="name"]').value,
-    phone: document.querySelector('[name="phone"]').value
-  };
-
-  fetch("https://script.google.com/macros/s/AKfycbxWCQYw-BFXjZ9uMib8cq1RLVu6VuftYQtKZmVBTq4Ay4doy1szoRjz0uo9CuoyQsKljw/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(formData)
-  });
-
-  alert("Заявка відправлена!");
-  document.getElementById("orderForm").reset();
-});
-</script>
-
-    </section>
   </main>
   <footer>
     <p>&copy; 2025 DILOWEAR. Всі права захищені.</p>
