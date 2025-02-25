@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DILOWEAR</title>
   <style>
+    /* Общие стили для страницы */
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
       background-color: #f4f4f4;
       color: #333;
       line-height: 1.6;
+      scroll-behavior: smooth; /* Плавная прокрутка */
     }
-    header {
+    /* Header и Footer на всю ширину */
+    header, footer {
+      width: 100%;
       background-color: #2d2d2d;
       color: #fff;
-      padding: 1em;
+      padding: 1em 0;
+    }
+    /* Внутреннее содержимое header и footer центрируется */
+    .inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap;
     }
     .logo-container {
       display: flex;
@@ -42,6 +55,10 @@
       margin: 0;
       color: #ccc;
     }
+    header nav {
+      display: flex;
+      flex-wrap: wrap;
+    }
     header nav a {
       margin: 0 1em;
       text-decoration: none;
@@ -52,19 +69,21 @@
     header nav a:hover {
       color: #50d875;
     }
-    .container {
-      width: 90%;
+    /* Основное содержимое страницы */
+    main {
       max-width: 1200px;
-      margin: auto;
+      margin: 2em auto;
+      padding: 0 5%;
     }
     section {
-      padding: 4em 0;
+      padding: 4em 0 2em;
       text-align: center;
     }
     .gallery {
       display: flex;
       justify-content: center;
       gap: 2em;
+      flex-wrap: wrap;
       margin-top: 2em;
     }
     .gallery-item {
@@ -74,6 +93,7 @@
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s, box-shadow 0.3s;
+      margin: 0.5em;
     }
     .gallery-item:hover {
       transform: translateY(-10px);
@@ -86,44 +106,132 @@
     }
     .info-block {
       text-align: left;
+      margin: 1em 0;
+    }
+    /* Стили для формы */
+    .form-container {
+      width: 100%;
+      max-width: 700px;
+      margin: 2em auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      text-align: left;
+    }
+    .form-container h2 {
+      text-align: center;
       margin-bottom: 1em;
+    }
+    .form-container form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .form-container form label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .form-container form input,
+    .form-container form select,
+    .form-container form textarea,
+    .form-container form button {
+      width: 100%;
+      padding: 15px;
+      font-size: 1.1em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .form-container form button {
+      background: #2d2d2d;
+      color: #fff;
+      font-size: 1.3em;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s;
+    }
+    .form-container form button:hover {
+      background: #444;
+    }
+    #successMessage {
+      display: none;
+      color: green;
+      margin-top: 15px;
+      text-align: center;
+      font-size: 1.2em;
+    }
+    footer p {
+      margin: 0;
+      text-align: center;
+    }
+    /* Медиа-запросы для мобильных устройств */
+    @media (max-width: 768px) {
+      .inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      header nav {
+        width: 100%;
+        justify-content: space-around;
+      }
+      .gallery {
+        gap: 1em;
+      }
+      .gallery-item {
+        width: 100%;
+        max-width: 300px;
+      }
+      .form-container {
+        padding: 20px;
+      }
+      .form-container form input,
+      .form-container form select,
+      .form-container form textarea,
+      .form-container form button {
+        padding: 12px;
+        font-size: 1em;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo-container">
-      <img src="/dilowear/logo.png" alt="DILOWEAR">
-      <div class="logo-text">
-        <h1>DILOWEAR</h1>
-        <p>Легко замовити - приємно носити.</p>
+    <div class="inner">
+      <div class="logo-container">
+        <img src="/dilowear/logo.png" alt="DILOWEAR" />
+        <div class="logo-text">
+          <h1>DILOWEAR</h1>
+          <p>Легко замовити - приємно носити.</p>
+        </div>
       </div>
+      <nav>
+        <a href="#gallery">Галерея</a>
+        <!-- Изменяем ссылку с "#advantages" на "#utp" -->
+        <a href="#utp">Чому ми</a>
+        <a href="#form">Контакти</a>
+      </nav>
     </div>
-    <nav>
-      <a href="#gallery">Галерея</a>
-      <a href="#advantages">Чому ми</a>
-      <a href="#form">Контакти</a>
-    </nav>
   </header>
   <main>
-    <section id="gallery" class="container">
+    <section id="gallery">
       <h2>Наші вироби</h2>
       <div class="gallery">
         <div class="gallery-item">
-          <img src="/dilowear/tshirt.png" alt="Футболка">
+          <img src="/dilowear/tshirt.png" alt="Футболка" />
           <p>Якісна футболка</p>
         </div>
         <div class="gallery-item">
-          <img src="/dilowear/hoodie.png" alt="Худі">
+          <img src="/dilowear/hoodie.png" alt="Худі" />
           <p>Теплий худі</p>
         </div>
         <div class="gallery-item">
-          <img src="/dilowear/sweatshirt.png" alt="Світшот">
+          <img src="/dilowear/sweatshirt.png" alt="Світшот" />
           <p>Стильний світшот</p>
         </div>
       </div>
     </section>
-    <section id="utp" class="container">
+    <!-- Секция "Чому обирають нас" с id="utp" -->
+    <section id="utp">
       <h2>Чому обирають нас?</h2>
       <div class="info-block">
         <p><strong>Швидко:</strong><br> Виготовляємо ваш мерч всього за 2-3 дні.</p>
@@ -144,67 +252,72 @@
       </div>
       <p>Створюємо мерч, який працює на ваш бренд: якісно, швидко та без зайвих клопотів.</p>
     </section>
-    <section id="form" class="container">
-  <h2>Залишити заявку</h2>
-  <form id="orderForm">
-    <select name="product" required>
-      <option value="tshirt">Футболка</option>
-      <option value="hoodie">Худі</option>
-      <option value="sweatshirt">Світшот</option>
-      <option value="other">Інше</option>
-    </select>
-    <input type="text" name="name" placeholder="Ваше ім'я" required>
-    <input type="tel" name="phone" placeholder="Ваш номер телефону" required>
-    <button type="submit" id="submitButton">Відправити</button>
-  </form>
-  <p id="successMessage" style="display:none; color:green; margin-top:10px;">✅ Ваша заявка успішно відправлена!</p>
-</section>
-
-<script>
-document.getElementById("orderForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-  var submitButton = document.getElementById("submitButton");
-  var successMessage = document.getElementById("successMessage");
-  
-  var phone = document.querySelector('[name="phone"]').value;
-  var phonePattern = /^\+?\d{10,13}$/;
-  if (!phonePattern.test(phone)) {
-    alert("❌ Будь ласка, введіть коректний номер телефону!");
-    return;
-  }
-  
-  submitButton.textContent = "Відправка...";
-  submitButton.disabled = true;
-  
-  var formData = {
-    product: document.querySelector('[name="product"]').value,
-    name: document.querySelector('[name="name"]').value,
-    phone: phone
-  };
-
-  fetch("https://script.google.com/macros/s/AKfycbxWCQYw-BFXjZ9uMib8cq1RLVu6VuftYQtKZmVBTq4Ay4doy1szoRjz0uo9CuoyQsKljw/exec", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(formData)
-  }).then(() => {
-    submitButton.textContent = "Відправити";
-    submitButton.disabled = false;
-    document.getElementById("orderForm").reset();
-    successMessage.style.display = "block";
-    setTimeout(() => { successMessage.style.display = "none"; }, 5000);
-  }).catch(() => {
-    submitButton.textContent = "Відправити";
-    submitButton.disabled = false;
-    alert("❌ Помилка відправки. Спробуйте ще раз!");
-  });
-});
-</script>
+    <section id="form">
+      <div class="form-container">
+        <h2>Залишити заявку</h2>
+        <form id="orderForm">
+          <label for="product">Оберіть товар:</label>
+          <select name="product" id="product" required>
+            <option value="tshirt">Футболка</option>
+            <option value="hoodie">Худі</option>
+            <option value="sweatshirt">Світшот</option>
+            <option value="other">Інше</option>
+          </select>
+          <label for="name">Ваше ім'я:</label>
+          <input type="text" name="name" id="name" placeholder="Ваше ім'я" required />
+          <label for="phone">Ваш номер телефону:</label>
+          <input type="tel" name="phone" id="phone" placeholder="Ваш номер телефону" required />
+          <label for="comments">Додаткові коментарі:</label>
+          <textarea name="comments" id="comments" placeholder="Ваші побажання або запитання" rows="5"></textarea>
+          <button type="submit" id="submitButton">Відправити</button>
+        </form>
+        <p id="successMessage">✅ Ваша заявка успішно відправлена!</p>
+      </div>
+    </section>
   </main>
   <footer>
-    <p>&copy; 2025 DILOWEAR. Всі права захищені.</p>
+    <div class="inner">
+      <p>&copy; 2025 DILOWEAR. Всі права захищені.</p>
+    </div>
   </footer>
+  <script>
+    document.getElementById("orderForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      var submitButton = document.getElementById("submitButton");
+      var successMessage = document.getElementById("successMessage");
+      var phone = document.querySelector('[name="phone"]').value;
+      var phonePattern = /^(?:\+?38[\s-]*)?\(?0\d{2}\)?[\s-]*\d{3}[\s-]*\d{2}[\s-]*\d{2}$/;
+      if (!phonePattern.test(phone)) {
+        alert("❌ Будь ласка, введіть коректний номер телефону!");
+        return;
+      }
+      submitButton.textContent = "Відправка...";
+      submitButton.disabled = true;
+      var formData = {
+        product: document.querySelector('[name="product"]').value,
+        name: document.querySelector('[name="name"]').value,
+        phone: phone,
+        comments: document.querySelector('[name="comments"]').value
+      };
+      fetch("https://script.google.com/macros/s/AKfycbyoHb0GmFHoeZq2R0xBgoxii0o9XqbCZRQG-SOfPa3L9NJHD22CmjI6I5ugG839Z2kEpA/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      })
+        .then(() => {
+          submitButton.textContent = "Відправити";
+          submitButton.disabled = false;
+          document.getElementById("orderForm").reset();
+          successMessage.style.display = "block";
+          setTimeout(() => { successMessage.style.display = "none"; }, 5000);
+        })
+        .catch(() => {
+          submitButton.textContent = "Відправити";
+          submitButton.disabled = false;
+          alert("❌ Помилка відправки. Спробуйте ще раз!");
+        });
+    });
+  </script>
 </body>
 </html>
